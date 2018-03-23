@@ -18,7 +18,7 @@ setup(
     license='Apache License, Version 2.0',
     author='tulip',
     author_email='',
-    description='Mopidy extension for the NTC CHIP GPIO buttons',
+    description='Mopidy extension for the RPI GPIO buttons',
     long_description=open('README.rst').read(),
     packages=find_packages(exclude=['tests', 'tests.*']),
     zip_safe=False,
