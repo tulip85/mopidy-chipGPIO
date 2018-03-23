@@ -4,7 +4,7 @@ import traceback
 
 from mopidy import core
 
-import Rpi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time,os
 
 import pykka
