@@ -10,11 +10,9 @@ import time,os
 import pykka
 
 
-
-
 logger = logging.getLogger(__name__)
 
-
+ 
 class chipGPIO(pykka.ThreadingActor, core.CoreListener):
 
     def eventDetected(self, channel):
@@ -38,6 +36,7 @@ class chipGPIO(pykka.ThreadingActor, core.CoreListener):
         if channel == self.config['chipGPIO']['stop_pin']:
             logger.info("stop")
             self.core.playback.stop()
+        
 
     def __init__(self, config, core):
         super(chipGPIO, self).__init__()
@@ -45,6 +44,8 @@ class chipGPIO(pykka.ThreadingActor, core.CoreListener):
         self.core = core
         self.config = config
         GPIO.setmode(GPIO.BOARD)
+        
+        logger.info("testing")
         
         #register buttons
         if config['chipGPIO']['play_pin']:
