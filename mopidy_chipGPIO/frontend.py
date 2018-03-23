@@ -4,7 +4,7 @@ import traceback
 
 from mopidy import core
 
-import CHIP_IO.GPIO as GPIO
+import Rpi.GPIO as GPIO
 import time,os
 
 import pykka
@@ -44,8 +44,7 @@ class chipGPIO(pykka.ThreadingActor, core.CoreListener):
         self.menu = False
         self.core = core
         self.config = config
-        
-        logger.info("testing")
+        GPIO.setmode(GPIO.BOARD)
         
         #register buttons
         if config['chipGPIO']['play_pin']:

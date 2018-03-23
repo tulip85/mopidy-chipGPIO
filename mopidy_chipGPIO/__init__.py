@@ -23,10 +23,10 @@ class Extension(ext.Extension):
 
     def get_config_schema(self):
         schema = super(Extension, self).get_config_schema()
-        schema['play_pin'] = config.String()
-        schema['previous_pin'] = config.String()
-        schema['next_pin'] = config.String()
-        schema['stop_pin'] = config.String()
+        schema['play_pin'] = config.Integer()
+        schema['previous_pin'] = config.Integer()
+        schema['next_pin'] = config.Integer()
+        schema['stop_pin'] = config.Integer()
         return schema
 
     def setup(self, registry):
