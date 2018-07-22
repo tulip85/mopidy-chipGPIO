@@ -45,26 +45,25 @@ class chipGPIO(pykka.ThreadingActor, core.CoreListener):
         self.config = config
         GPIO.setmode(GPIO.BOARD)
         
-        logger.info("testing")
         
         #register buttons
         if config['chipGPIO']['play_pin']:
             GPIO.setup(config['chipGPIO']['play_pin'], GPIO.IN, pull_up_down=GPIO.PUD_UP)
-            GPIO.add_event_detect(config['chipGPIO']['play_pin'], GPIO.RISING, bouncetime=200)
+            GPIO.add_event_detect(config['chipGPIO']['play_pin'], GPIO.RISING, bouncetime=600)
             GPIO.add_event_callback(config['chipGPIO']['play_pin'], self.eventDetected)
             
         if config['chipGPIO']['previous_pin']:
             GPIO.setup(config['chipGPIO']['previous_pin'], GPIO.IN, pull_up_down=GPIO.PUD_UP)
-            GPIO.add_event_detect(config['chipGPIO']['previous_pin'], GPIO.RISING, bouncetime=200)
+            GPIO.add_event_detect(config['chipGPIO']['previous_pin'], GPIO.RISING, bouncetime=600)
             GPIO.add_event_callback(config['chipGPIO']['previous_pin'], self.eventDetected)
             
         if config['chipGPIO']['next_pin']:
             GPIO.setup(config['chipGPIO']['next_pin'], GPIO.IN, pull_up_down=GPIO.PUD_UP)
-            GPIO.add_event_detect(config['chipGPIO']['next_pin'], GPIO.RISING, bouncetime=200)
+            GPIO.add_event_detect(config['chipGPIO']['next_pin'], GPIO.RISING, bouncetime=600)
             GPIO.add_event_callback(config['chipGPIO']['next_pin'], self.eventDetected)
             
         if config['chipGPIO']['stop_pin']:
             GPIO.setup(config['chipGPIO']['stop_pin'], GPIO.IN, pull_up_down=GPIO.PUD_UP)
-            GPIO.add_event_detect(config['chipGPIO']['stop_pin'], GPIO.RISING, bouncetime=200)
+            GPIO.add_event_detect(config['chipGPIO']['stop_pin'], GPIO.RISING, bouncetime=600)
             GPIO.add_event_callback(config['chipGPIO']['stop_pin'], self.eventDetected)
         
